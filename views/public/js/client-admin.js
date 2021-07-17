@@ -22,6 +22,12 @@ $buttonUnLockBuzzer = $('#button-unlock-buzz');
 $buttonReloadPart = $('#button-reload-part');
 
 $buttonNextTransition = $('#button-next-transition');
+$buttonTransition1 = $('#button-transition-1');
+$buttonTransition2 = $('#button-transition-2');
+$buttonTransition3 = $('#button-transition-3');
+$buttonTransition4 = $('#button-transition-4');
+$buttonTransition5 = $('#button-transition-5');
+$buttonTransition6 = $('#button-transition-6');
 
 $modalReloadPartWarn = $('#modal-reload-part');
 
@@ -51,6 +57,26 @@ var initEvents = function () {
     $buttonNextTransition.click(function(){
         socket.emit(messageNextTransition);
     });
+
+    $buttonTransition1.click(() => {
+        socket.emit("event-transition", 1);
+    });
+    $buttonTransition2.click(() => {
+        socket.emit("event-transition", 2);
+    });
+    $buttonTransition3.click(() => {
+        socket.emit("event-transition", 3);
+    });
+    $buttonTransition4.click(() => {
+        socket.emit("event-transition", 4);
+    });
+    $buttonTransition5.click(() => {
+        socket.emit("event-transition", 5);
+    });
+    $buttonTransition6.click(() => {
+        socket.emit("event-transition", 6);
+    });
+
     $buttonBuzzBadResponse.click(function() {
         socket.emit(messageBuzzBadResponse);
     })

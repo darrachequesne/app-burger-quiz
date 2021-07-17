@@ -14,6 +14,15 @@ module.exports = function (io) {
      */
     var buzzerIsLock = true;
 
+    const transitions = {
+        1: 'generique.mp4',
+        2: 'nuggets-transition.mp4',
+        3: 'selt-pepper-transition.mp4',
+        4: 'menus-transition.mp4',
+        5: 'addition-transition.mp4',
+        6: 'death-burger-transition.mp4'
+    }
+
     const initGameSocket = function () {
         /**
          * Init Socket
@@ -86,6 +95,10 @@ module.exports = function (io) {
                 if (!nextTransition)
                     return;
                 io.emit(messages.messageToClientNextTransition, nextTransition.filename);
+            });
+
+            socket.on("event-transition", (id) => {
+                io.emit(messages.messageToClientNextTransition, transitions[id]);
             });
 
             /**
